@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAgendaRouteImport } from './routes/_authenticated/agenda'
+import { Route as AuthenticatedAnaliticaRouteImport } from './routes/_authenticated/analitica'
 import { Route as AuthenticatedBibliotecaRouteImport } from './routes/_authenticated/biblioteca'
 import { Route as AuthenticatedCalendarioRouteImport } from './routes/_authenticated/calendario'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
@@ -45,6 +46,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
 const AuthenticatedAgendaRoute = AuthenticatedAgendaRouteImport.update({
   id: '/agenda',
   path: '/agenda',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAnaliticaRoute = AuthenticatedAnaliticaRouteImport.update({
+  id: '/analitica',
+  path: '/analitica',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedBibliotecaRoute = AuthenticatedBibliotecaRouteImport.update({
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/agenda': typeof AuthenticatedAgendaRoute
+  '/analitica': typeof AuthenticatedAnaliticaRoute
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/agenda': typeof AuthenticatedAgendaRoute
+  '/analitica': typeof AuthenticatedAnaliticaRoute
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -124,6 +132,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/agenda': typeof AuthenticatedAgendaRoute
+  '/_authenticated/analitica': typeof AuthenticatedAnaliticaRoute
   '/_authenticated/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/_authenticated/calendario': typeof AuthenticatedCalendarioRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -140,6 +149,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/admin'
     | '/agenda'
+    | '/analitica'
     | '/biblioteca'
     | '/calendario'
     | '/dashboard'
@@ -154,6 +164,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/admin'
     | '/agenda'
+    | '/analitica'
     | '/biblioteca'
     | '/calendario'
     | '/dashboard'
@@ -169,6 +180,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/_authenticated/admin'
     | '/_authenticated/agenda'
+    | '/_authenticated/analitica'
     | '/_authenticated/biblioteca'
     | '/_authenticated/calendario'
     | '/_authenticated/dashboard'
@@ -220,6 +232,13 @@ declare module '@tanstack/react-router' {
       path: '/agenda'
       fullPath: '/agenda'
       preLoaderRoute: typeof AuthenticatedAgendaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/analitica': {
+      id: '/_authenticated/analitica'
+      path: '/analitica'
+      fullPath: '/analitica'
+      preLoaderRoute: typeof AuthenticatedAnaliticaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/biblioteca': {
@@ -284,6 +303,7 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedAgendaRoute: typeof AuthenticatedAgendaRoute
+  AuthenticatedAnaliticaRoute: typeof AuthenticatedAnaliticaRoute
   AuthenticatedBibliotecaRoute: typeof AuthenticatedBibliotecaRoute
   AuthenticatedCalendarioRoute: typeof AuthenticatedCalendarioRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
@@ -297,6 +317,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedAgendaRoute: AuthenticatedAgendaRoute,
+  AuthenticatedAnaliticaRoute: AuthenticatedAnaliticaRoute,
   AuthenticatedBibliotecaRoute: AuthenticatedBibliotecaRoute,
   AuthenticatedCalendarioRoute: AuthenticatedCalendarioRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
@@ -318,13 +339,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
