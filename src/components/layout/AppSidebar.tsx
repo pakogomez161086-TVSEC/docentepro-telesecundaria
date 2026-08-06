@@ -1,15 +1,18 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
+  BarChart3,
   BookOpen,
   CalendarDays,
   CalendarRange,
   ClipboardList,
   FileText,
+  GraduationCap,
   LayoutDashboard,
   Library,
   NotebookPen,
   Settings,
   Sparkles,
+  Users,
 } from "lucide-react";
 
 import { BrandLogo } from "@/components/brand/BrandLogo";
@@ -38,12 +41,19 @@ const pedagogia: Item[] = [
   { title: "Exámenes", url: "/examenes", icon: FileText },
 ];
 
+const seguimiento: Item[] = [
+  { title: "Analítica Educativa", url: "/analitica", icon: BarChart3 },
+  { title: "Boletas y Evaluación", url: "/boletas", icon: GraduationCap },
+  { title: "Portal de Padres", url: "/padres", icon: Users },
+];
+
 const organizacion: Item[] = [
   { title: "Agenda Docente", url: "/agenda", icon: CalendarDays },
   { title: "Calendario Escolar", url: "/calendario", icon: CalendarRange },
   { title: "Biblioteca", url: "/biblioteca", icon: Library },
   { title: "Administración", url: "/admin", icon: Settings },
 ];
+
 
 export function AppSidebar() {
   const { state } = useSidebar();
