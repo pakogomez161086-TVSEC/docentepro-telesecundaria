@@ -88,7 +88,9 @@ export function AppSidebar() {
       <SidebarContent>
         {renderGroup("General", principal)}
         {renderGroup("Pedagogía", pedagogia)}
+        {renderGroup("Seguimiento", seguimiento)}
         {renderGroup("Organización", organizacion)}
+
       </SidebarContent>
     </Sidebar>
   );
