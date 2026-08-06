@@ -62,6 +62,88 @@ export type Database = {
         }
         Relationships: []
       }
+      alumnos: {
+        Row: {
+          activo: boolean
+          codigo_acceso: string
+          created_at: string
+          curp: string | null
+          grupo_id: string | null
+          id: string
+          nombre_completo: string
+          tutor_contacto: string | null
+          tutor_nombre: string | null
+          user_id: string
+        }
+        Insert: {
+          activo?: boolean
+          codigo_acceso?: string
+          created_at?: string
+          curp?: string | null
+          grupo_id?: string | null
+          id?: string
+          nombre_completo: string
+          tutor_contacto?: string | null
+          tutor_nombre?: string | null
+          user_id: string
+        }
+        Update: {
+          activo?: boolean
+          codigo_acceso?: string
+          created_at?: string
+          curp?: string | null
+          grupo_id?: string | null
+          id?: string
+          nombre_completo?: string
+          tutor_contacto?: string | null
+          tutor_nombre?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alumnos_grupo_id_fkey"
+            columns: ["grupo_id"]
+            isOneToOne: false
+            referencedRelation: "grupos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      asistencias: {
+        Row: {
+          alumno_id: string
+          created_at: string
+          estado: string
+          fecha: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          alumno_id: string
+          created_at?: string
+          estado?: string
+          fecha?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          alumno_id?: string
+          created_at?: string
+          estado?: string
+          fecha?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "asistencias_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       base_conocimiento: {
         Row: {
           campo_formativo: string | null
@@ -212,6 +294,53 @@ export type Database = {
         }
         Relationships: []
       }
+      calificaciones: {
+        Row: {
+          alumno_id: string
+          calificacion: number
+          campo_formativo: string
+          created_at: string
+          disciplina: string | null
+          id: string
+          observaciones: string | null
+          trimestre: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          alumno_id: string
+          calificacion: number
+          campo_formativo: string
+          created_at?: string
+          disciplina?: string | null
+          id?: string
+          observaciones?: string | null
+          trimestre: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          alumno_id?: string
+          calificacion?: number
+          campo_formativo?: string
+          created_at?: string
+          disciplina?: string | null
+          id?: string
+          observaciones?: string | null
+          trimestre?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "calificaciones_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       campos_formativos: {
         Row: {
           color: string | null
@@ -330,6 +459,33 @@ export type Database = {
           titulo?: string
           trimestre?: number | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      grupos: {
+        Row: {
+          ciclo: string
+          created_at: string
+          grado: number
+          id: string
+          nombre: string
+          user_id: string
+        }
+        Insert: {
+          ciclo?: string
+          created_at?: string
+          grado: number
+          id?: string
+          nombre: string
+          user_id: string
+        }
+        Update: {
+          ciclo?: string
+          created_at?: string
+          grado?: number
+          id?: string
+          nombre?: string
           user_id?: string
         }
         Relationships: []
