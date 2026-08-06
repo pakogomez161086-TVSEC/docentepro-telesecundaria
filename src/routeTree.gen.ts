@@ -16,6 +16,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as AuthenticatedAgendaRouteImport } from './routes/_authenticated/agenda'
 import { Route as AuthenticatedAnaliticaRouteImport } from './routes/_authenticated/analitica'
 import { Route as AuthenticatedBibliotecaRouteImport } from './routes/_authenticated/biblioteca'
+import { Route as AuthenticatedBoletasRouteImport } from './routes/_authenticated/boletas'
 import { Route as AuthenticatedCalendarioRouteImport } from './routes/_authenticated/calendario'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamenesRouteImport } from './routes/_authenticated/examenes'
@@ -56,6 +57,11 @@ const AuthenticatedAnaliticaRoute = AuthenticatedAnaliticaRouteImport.update({
 const AuthenticatedBibliotecaRoute = AuthenticatedBibliotecaRouteImport.update({
   id: '/biblioteca',
   path: '/biblioteca',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedBoletasRoute = AuthenticatedBoletasRouteImport.update({
+  id: '/boletas',
+  path: '/boletas',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedCalendarioRoute = AuthenticatedCalendarioRouteImport.update({
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/agenda': typeof AuthenticatedAgendaRoute
   '/analitica': typeof AuthenticatedAnaliticaRoute
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
+  '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/agenda': typeof AuthenticatedAgendaRoute
   '/analitica': typeof AuthenticatedAnaliticaRoute
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
+  '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/_authenticated/agenda': typeof AuthenticatedAgendaRoute
   '/_authenticated/analitica': typeof AuthenticatedAnaliticaRoute
   '/_authenticated/biblioteca': typeof AuthenticatedBibliotecaRoute
+  '/_authenticated/boletas': typeof AuthenticatedBoletasRoute
   '/_authenticated/calendario': typeof AuthenticatedCalendarioRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/examenes': typeof AuthenticatedExamenesRoute
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/agenda'
     | '/analitica'
     | '/biblioteca'
+    | '/boletas'
     | '/calendario'
     | '/dashboard'
     | '/examenes'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/agenda'
     | '/analitica'
     | '/biblioteca'
+    | '/boletas'
     | '/calendario'
     | '/dashboard'
     | '/examenes'
@@ -182,6 +193,7 @@ export interface FileRouteTypes {
     | '/_authenticated/agenda'
     | '/_authenticated/analitica'
     | '/_authenticated/biblioteca'
+    | '/_authenticated/boletas'
     | '/_authenticated/calendario'
     | '/_authenticated/dashboard'
     | '/_authenticated/examenes'
@@ -248,6 +260,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBibliotecaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/boletas': {
+      id: '/_authenticated/boletas'
+      path: '/boletas'
+      fullPath: '/boletas'
+      preLoaderRoute: typeof AuthenticatedBoletasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/calendario': {
       id: '/_authenticated/calendario'
       path: '/calendario'
@@ -305,6 +324,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAgendaRoute: typeof AuthenticatedAgendaRoute
   AuthenticatedAnaliticaRoute: typeof AuthenticatedAnaliticaRoute
   AuthenticatedBibliotecaRoute: typeof AuthenticatedBibliotecaRoute
+  AuthenticatedBoletasRoute: typeof AuthenticatedBoletasRoute
   AuthenticatedCalendarioRoute: typeof AuthenticatedCalendarioRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamenesRoute: typeof AuthenticatedExamenesRoute
@@ -319,6 +339,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAgendaRoute: AuthenticatedAgendaRoute,
   AuthenticatedAnaliticaRoute: AuthenticatedAnaliticaRoute,
   AuthenticatedBibliotecaRoute: AuthenticatedBibliotecaRoute,
+  AuthenticatedBoletasRoute: AuthenticatedBoletasRoute,
   AuthenticatedCalendarioRoute: AuthenticatedCalendarioRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamenesRoute: AuthenticatedExamenesRoute,
