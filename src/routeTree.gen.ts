@@ -21,8 +21,11 @@ import { Route as AuthenticatedBoletasRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedCalendarioRouteImport } from './routes/_authenticated/calendario'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamenesRouteImport } from './routes/_authenticated/examenes'
+import { Route as AuthenticatedExpedienteRouteImport } from './routes/_authenticated/expediente'
 import { Route as AuthenticatedIaRouteImport } from './routes/_authenticated/ia'
+import { Route as AuthenticatedObservadorRouteImport } from './routes/_authenticated/observador'
 import { Route as AuthenticatedPlaneacionesRouteImport } from './routes/_authenticated/planeaciones'
+import { Route as AuthenticatedPortafolioRouteImport } from './routes/_authenticated/portafolio'
 import { Route as AuthenticatedProyectosRouteImport } from './routes/_authenticated/proyectos'
 import { Route as AuthenticatedSesionesRouteImport } from './routes/_authenticated/sesiones'
 
@@ -85,9 +88,19 @@ const AuthenticatedExamenesRoute = AuthenticatedExamenesRouteImport.update({
   path: '/examenes',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedExpedienteRoute = AuthenticatedExpedienteRouteImport.update({
+  id: '/expediente',
+  path: '/expediente',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedIaRoute = AuthenticatedIaRouteImport.update({
   id: '/ia',
   path: '/ia',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedObservadorRoute = AuthenticatedObservadorRouteImport.update({
+  id: '/observador',
+  path: '/observador',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedPlaneacionesRoute =
@@ -96,6 +109,11 @@ const AuthenticatedPlaneacionesRoute =
     path: '/planeaciones',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedPortafolioRoute = AuthenticatedPortafolioRouteImport.update({
+  id: '/portafolio',
+  path: '/portafolio',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedProyectosRoute = AuthenticatedProyectosRouteImport.update({
   id: '/proyectos',
   path: '/proyectos',
@@ -119,8 +137,11 @@ export interface FileRoutesByFullPath {
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
+  '/expediente': typeof AuthenticatedExpedienteRoute
   '/ia': typeof AuthenticatedIaRoute
+  '/observador': typeof AuthenticatedObservadorRoute
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
+  '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
@@ -136,8 +157,11 @@ export interface FileRoutesByTo {
   '/calendario': typeof AuthenticatedCalendarioRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
+  '/expediente': typeof AuthenticatedExpedienteRoute
   '/ia': typeof AuthenticatedIaRoute
+  '/observador': typeof AuthenticatedObservadorRoute
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
+  '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
@@ -155,8 +179,11 @@ export interface FileRoutesById {
   '/_authenticated/calendario': typeof AuthenticatedCalendarioRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/examenes': typeof AuthenticatedExamenesRoute
+  '/_authenticated/expediente': typeof AuthenticatedExpedienteRoute
   '/_authenticated/ia': typeof AuthenticatedIaRoute
+  '/_authenticated/observador': typeof AuthenticatedObservadorRoute
   '/_authenticated/planeaciones': typeof AuthenticatedPlaneacionesRoute
+  '/_authenticated/portafolio': typeof AuthenticatedPortafolioRoute
   '/_authenticated/proyectos': typeof AuthenticatedProyectosRoute
   '/_authenticated/sesiones': typeof AuthenticatedSesionesRoute
 }
@@ -174,8 +201,11 @@ export interface FileRouteTypes {
     | '/calendario'
     | '/dashboard'
     | '/examenes'
+    | '/expediente'
     | '/ia'
+    | '/observador'
     | '/planeaciones'
+    | '/portafolio'
     | '/proyectos'
     | '/sesiones'
   fileRoutesByTo: FileRoutesByTo
@@ -191,8 +221,11 @@ export interface FileRouteTypes {
     | '/calendario'
     | '/dashboard'
     | '/examenes'
+    | '/expediente'
     | '/ia'
+    | '/observador'
     | '/planeaciones'
+    | '/portafolio'
     | '/proyectos'
     | '/sesiones'
   id:
@@ -209,8 +242,11 @@ export interface FileRouteTypes {
     | '/_authenticated/calendario'
     | '/_authenticated/dashboard'
     | '/_authenticated/examenes'
+    | '/_authenticated/expediente'
     | '/_authenticated/ia'
+    | '/_authenticated/observador'
     | '/_authenticated/planeaciones'
+    | '/_authenticated/portafolio'
     | '/_authenticated/proyectos'
     | '/_authenticated/sesiones'
   fileRoutesById: FileRoutesById
@@ -308,6 +344,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedExamenesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/expediente': {
+      id: '/_authenticated/expediente'
+      path: '/expediente'
+      fullPath: '/expediente'
+      preLoaderRoute: typeof AuthenticatedExpedienteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/ia': {
       id: '/_authenticated/ia'
       path: '/ia'
@@ -315,11 +358,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedIaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/observador': {
+      id: '/_authenticated/observador'
+      path: '/observador'
+      fullPath: '/observador'
+      preLoaderRoute: typeof AuthenticatedObservadorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/planeaciones': {
       id: '/_authenticated/planeaciones'
       path: '/planeaciones'
       fullPath: '/planeaciones'
       preLoaderRoute: typeof AuthenticatedPlaneacionesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/portafolio': {
+      id: '/_authenticated/portafolio'
+      path: '/portafolio'
+      fullPath: '/portafolio'
+      preLoaderRoute: typeof AuthenticatedPortafolioRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/proyectos': {
@@ -348,8 +405,11 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCalendarioRoute: typeof AuthenticatedCalendarioRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamenesRoute: typeof AuthenticatedExamenesRoute
+  AuthenticatedExpedienteRoute: typeof AuthenticatedExpedienteRoute
   AuthenticatedIaRoute: typeof AuthenticatedIaRoute
+  AuthenticatedObservadorRoute: typeof AuthenticatedObservadorRoute
   AuthenticatedPlaneacionesRoute: typeof AuthenticatedPlaneacionesRoute
+  AuthenticatedPortafolioRoute: typeof AuthenticatedPortafolioRoute
   AuthenticatedProyectosRoute: typeof AuthenticatedProyectosRoute
   AuthenticatedSesionesRoute: typeof AuthenticatedSesionesRoute
 }
@@ -363,8 +423,11 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCalendarioRoute: AuthenticatedCalendarioRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamenesRoute: AuthenticatedExamenesRoute,
+  AuthenticatedExpedienteRoute: AuthenticatedExpedienteRoute,
   AuthenticatedIaRoute: AuthenticatedIaRoute,
+  AuthenticatedObservadorRoute: AuthenticatedObservadorRoute,
   AuthenticatedPlaneacionesRoute: AuthenticatedPlaneacionesRoute,
+  AuthenticatedPortafolioRoute: AuthenticatedPortafolioRoute,
   AuthenticatedProyectosRoute: AuthenticatedProyectosRoute,
   AuthenticatedSesionesRoute: AuthenticatedSesionesRoute,
 }
