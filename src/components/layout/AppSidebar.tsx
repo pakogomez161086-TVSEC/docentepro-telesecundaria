@@ -5,8 +5,11 @@ import {
   CalendarDays,
   CalendarRange,
   ClipboardList,
+  Eye,
   FileText,
+  FolderOpen,
   GraduationCap,
+  Images,
   LayoutDashboard,
   Library,
   NotebookPen,
@@ -44,6 +47,9 @@ const pedagogia: Item[] = [
 const seguimiento: Item[] = [
   { title: "Analítica Educativa", url: "/analitica", icon: BarChart3 },
   { title: "Boletas y Evaluación", url: "/boletas", icon: GraduationCap },
+  { title: "Observador de Clase", url: "/observador", icon: Eye },
+  { title: "Expediente del Alumno", url: "/expediente", icon: FolderOpen },
+  { title: "Portafolio de Evidencias", url: "/portafolio", icon: Images },
   { title: "Portal de Padres", url: "/padres", icon: Users },
 ];
 
