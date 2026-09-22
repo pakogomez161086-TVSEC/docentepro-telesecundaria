@@ -463,6 +463,53 @@ export type Database = {
         }
         Relationships: []
       }
+      expediente_notas: {
+        Row: {
+          acuerdo: string | null
+          alumno_id: string
+          confidencial: boolean
+          created_at: string
+          descripcion: string | null
+          fecha: string
+          id: string
+          tipo: string
+          titulo: string
+          user_id: string
+        }
+        Insert: {
+          acuerdo?: string | null
+          alumno_id: string
+          confidencial?: boolean
+          created_at?: string
+          descripcion?: string | null
+          fecha?: string
+          id?: string
+          tipo?: string
+          titulo: string
+          user_id: string
+        }
+        Update: {
+          acuerdo?: string | null
+          alumno_id?: string
+          confidencial?: boolean
+          created_at?: string
+          descripcion?: string | null
+          fecha?: string
+          id?: string
+          tipo?: string
+          titulo?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "expediente_notas_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       grupos: {
         Row: {
           ciclo: string
@@ -519,6 +566,72 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      observaciones_clase: {
+        Row: {
+          acuerdos: string | null
+          alumno_id: string | null
+          areas_mejora: string | null
+          campo_formativo: string | null
+          contexto: string | null
+          created_at: string
+          fecha: string
+          fortalezas: string | null
+          grupo_id: string | null
+          id: string
+          momento: string
+          nivel_logro: number
+          observacion: string
+          user_id: string
+        }
+        Insert: {
+          acuerdos?: string | null
+          alumno_id?: string | null
+          areas_mejora?: string | null
+          campo_formativo?: string | null
+          contexto?: string | null
+          created_at?: string
+          fecha?: string
+          fortalezas?: string | null
+          grupo_id?: string | null
+          id?: string
+          momento?: string
+          nivel_logro?: number
+          observacion: string
+          user_id: string
+        }
+        Update: {
+          acuerdos?: string | null
+          alumno_id?: string | null
+          areas_mejora?: string | null
+          campo_formativo?: string | null
+          contexto?: string | null
+          created_at?: string
+          fecha?: string
+          fortalezas?: string | null
+          grupo_id?: string | null
+          id?: string
+          momento?: string
+          nivel_logro?: number
+          observacion?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "observaciones_clase_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "observaciones_clase_grupo_id_fkey"
+            columns: ["grupo_id"]
+            isOneToOne: false
+            referencedRelation: "grupos"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       planeaciones: {
         Row: {
@@ -653,6 +766,69 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      portafolio_evidencias: {
+        Row: {
+          alumno_id: string | null
+          campo_formativo: string | null
+          created_at: string
+          descripcion: string | null
+          destacada: boolean
+          fecha: string
+          grupo_id: string | null
+          id: string
+          tipo: string
+          titulo: string
+          trimestre: number
+          url: string | null
+          user_id: string
+        }
+        Insert: {
+          alumno_id?: string | null
+          campo_formativo?: string | null
+          created_at?: string
+          descripcion?: string | null
+          destacada?: boolean
+          fecha?: string
+          grupo_id?: string | null
+          id?: string
+          tipo?: string
+          titulo: string
+          trimestre?: number
+          url?: string | null
+          user_id: string
+        }
+        Update: {
+          alumno_id?: string | null
+          campo_formativo?: string | null
+          created_at?: string
+          descripcion?: string | null
+          destacada?: boolean
+          fecha?: string
+          grupo_id?: string | null
+          id?: string
+          tipo?: string
+          titulo?: string
+          trimestre?: number
+          url?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "portafolio_evidencias_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "portafolio_evidencias_grupo_id_fkey"
+            columns: ["grupo_id"]
+            isOneToOne: false
+            referencedRelation: "grupos"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
