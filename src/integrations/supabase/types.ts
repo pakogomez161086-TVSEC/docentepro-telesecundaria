@@ -62,6 +62,56 @@ export type Database = {
         }
         Relationships: []
       }
+      alertas_riesgo: {
+        Row: {
+          alumno_id: string
+          atendida: boolean
+          created_at: string
+          factores: string[]
+          fecha: string
+          id: string
+          nivel: string
+          puntaje: number
+          recomendaciones: string[]
+          resumen: string | null
+          user_id: string
+        }
+        Insert: {
+          alumno_id: string
+          atendida?: boolean
+          created_at?: string
+          factores?: string[]
+          fecha?: string
+          id?: string
+          nivel?: string
+          puntaje?: number
+          recomendaciones?: string[]
+          resumen?: string | null
+          user_id: string
+        }
+        Update: {
+          alumno_id?: string
+          atendida?: boolean
+          created_at?: string
+          factores?: string[]
+          fecha?: string
+          id?: string
+          nivel?: string
+          puntaje?: number
+          recomendaciones?: string[]
+          resumen?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alertas_riesgo_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       alumnos: {
         Row: {
           activo: boolean
@@ -294,6 +344,56 @@ export type Database = {
         }
         Relationships: []
       }
+      calendario_eventos: {
+        Row: {
+          completado: boolean
+          created_at: string
+          descripcion: string | null
+          fecha: string
+          fecha_fin: string | null
+          grupo_id: string | null
+          id: string
+          recordatorio: boolean
+          tipo: string
+          titulo: string
+          user_id: string
+        }
+        Insert: {
+          completado?: boolean
+          created_at?: string
+          descripcion?: string | null
+          fecha: string
+          fecha_fin?: string | null
+          grupo_id?: string | null
+          id?: string
+          recordatorio?: boolean
+          tipo?: string
+          titulo: string
+          user_id: string
+        }
+        Update: {
+          completado?: boolean
+          created_at?: string
+          descripcion?: string | null
+          fecha?: string
+          fecha_fin?: string | null
+          grupo_id?: string | null
+          id?: string
+          recordatorio?: boolean
+          tipo?: string
+          titulo?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "calendario_eventos_grupo_id_fkey"
+            columns: ["grupo_id"]
+            isOneToOne: false
+            referencedRelation: "grupos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       calificaciones: {
         Row: {
           alumno_id: string
@@ -370,6 +470,56 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      constancias: {
+        Row: {
+          alumno_id: string | null
+          created_at: string
+          cuerpo: string | null
+          datos: Json
+          destinatario: string | null
+          fecha: string
+          folio: string
+          id: string
+          observaciones: string | null
+          tipo: string
+          user_id: string
+        }
+        Insert: {
+          alumno_id?: string | null
+          created_at?: string
+          cuerpo?: string | null
+          datos?: Json
+          destinatario?: string | null
+          fecha?: string
+          folio: string
+          id?: string
+          observaciones?: string | null
+          tipo?: string
+          user_id: string
+        }
+        Update: {
+          alumno_id?: string | null
+          created_at?: string
+          cuerpo?: string | null
+          datos?: Json
+          destinatario?: string | null
+          fecha?: string
+          folio?: string
+          id?: string
+          observaciones?: string | null
+          tipo?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "constancias_alumno_id_fkey"
+            columns: ["alumno_id"]
+            isOneToOne: false
+            referencedRelation: "alumnos"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       disciplinas: {
         Row: {

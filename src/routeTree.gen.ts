@@ -19,6 +19,7 @@ import { Route as AuthenticatedAnaliticaRouteImport } from './routes/_authentica
 import { Route as AuthenticatedBibliotecaRouteImport } from './routes/_authenticated/biblioteca'
 import { Route as AuthenticatedBoletasRouteImport } from './routes/_authenticated/boletas'
 import { Route as AuthenticatedCalendarioRouteImport } from './routes/_authenticated/calendario'
+import { Route as AuthenticatedConstanciasRouteImport } from './routes/_authenticated/constancias'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamenesRouteImport } from './routes/_authenticated/examenes'
 import { Route as AuthenticatedExpedienteRouteImport } from './routes/_authenticated/expediente'
@@ -27,6 +28,8 @@ import { Route as AuthenticatedObservadorRouteImport } from './routes/_authentic
 import { Route as AuthenticatedPlaneacionesRouteImport } from './routes/_authenticated/planeaciones'
 import { Route as AuthenticatedPortafolioRouteImport } from './routes/_authenticated/portafolio'
 import { Route as AuthenticatedProyectosRouteImport } from './routes/_authenticated/proyectos'
+import { Route as AuthenticatedRespaldosRouteImport } from './routes/_authenticated/respaldos'
+import { Route as AuthenticatedRiesgoRouteImport } from './routes/_authenticated/riesgo'
 import { Route as AuthenticatedSesionesRouteImport } from './routes/_authenticated/sesiones'
 
 const IndexRoute = IndexRouteImport.update({
@@ -78,6 +81,12 @@ const AuthenticatedCalendarioRoute = AuthenticatedCalendarioRouteImport.update({
   path: '/calendario',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedConstanciasRoute =
+  AuthenticatedConstanciasRouteImport.update({
+    id: '/constancias',
+    path: '/constancias',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -119,6 +128,16 @@ const AuthenticatedProyectosRoute = AuthenticatedProyectosRouteImport.update({
   path: '/proyectos',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedRespaldosRoute = AuthenticatedRespaldosRouteImport.update({
+  id: '/respaldos',
+  path: '/respaldos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRiesgoRoute = AuthenticatedRiesgoRouteImport.update({
+  id: '/riesgo',
+  path: '/riesgo',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedSesionesRoute = AuthenticatedSesionesRouteImport.update({
   id: '/sesiones',
   path: '/sesiones',
@@ -135,6 +154,7 @@ export interface FileRoutesByFullPath {
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
+  '/constancias': typeof AuthenticatedConstanciasRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
   '/expediente': typeof AuthenticatedExpedienteRoute
@@ -143,6 +163,8 @@ export interface FileRoutesByFullPath {
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
+  '/respaldos': typeof AuthenticatedRespaldosRoute
+  '/riesgo': typeof AuthenticatedRiesgoRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRoutesByTo {
@@ -155,6 +177,7 @@ export interface FileRoutesByTo {
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
+  '/constancias': typeof AuthenticatedConstanciasRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
   '/expediente': typeof AuthenticatedExpedienteRoute
@@ -163,6 +186,8 @@ export interface FileRoutesByTo {
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
+  '/respaldos': typeof AuthenticatedRespaldosRoute
+  '/riesgo': typeof AuthenticatedRiesgoRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRoutesById {
@@ -177,6 +202,7 @@ export interface FileRoutesById {
   '/_authenticated/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/_authenticated/boletas': typeof AuthenticatedBoletasRoute
   '/_authenticated/calendario': typeof AuthenticatedCalendarioRoute
+  '/_authenticated/constancias': typeof AuthenticatedConstanciasRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/examenes': typeof AuthenticatedExamenesRoute
   '/_authenticated/expediente': typeof AuthenticatedExpedienteRoute
@@ -185,6 +211,8 @@ export interface FileRoutesById {
   '/_authenticated/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/_authenticated/portafolio': typeof AuthenticatedPortafolioRoute
   '/_authenticated/proyectos': typeof AuthenticatedProyectosRoute
+  '/_authenticated/respaldos': typeof AuthenticatedRespaldosRoute
+  '/_authenticated/riesgo': typeof AuthenticatedRiesgoRoute
   '/_authenticated/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRouteTypes {
@@ -199,6 +227,7 @@ export interface FileRouteTypes {
     | '/biblioteca'
     | '/boletas'
     | '/calendario'
+    | '/constancias'
     | '/dashboard'
     | '/examenes'
     | '/expediente'
@@ -207,6 +236,8 @@ export interface FileRouteTypes {
     | '/planeaciones'
     | '/portafolio'
     | '/proyectos'
+    | '/respaldos'
+    | '/riesgo'
     | '/sesiones'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -219,6 +250,7 @@ export interface FileRouteTypes {
     | '/biblioteca'
     | '/boletas'
     | '/calendario'
+    | '/constancias'
     | '/dashboard'
     | '/examenes'
     | '/expediente'
@@ -227,6 +259,8 @@ export interface FileRouteTypes {
     | '/planeaciones'
     | '/portafolio'
     | '/proyectos'
+    | '/respaldos'
+    | '/riesgo'
     | '/sesiones'
   id:
     | '__root__'
@@ -240,6 +274,7 @@ export interface FileRouteTypes {
     | '/_authenticated/biblioteca'
     | '/_authenticated/boletas'
     | '/_authenticated/calendario'
+    | '/_authenticated/constancias'
     | '/_authenticated/dashboard'
     | '/_authenticated/examenes'
     | '/_authenticated/expediente'
@@ -248,6 +283,8 @@ export interface FileRouteTypes {
     | '/_authenticated/planeaciones'
     | '/_authenticated/portafolio'
     | '/_authenticated/proyectos'
+    | '/_authenticated/respaldos'
+    | '/_authenticated/riesgo'
     | '/_authenticated/sesiones'
   fileRoutesById: FileRoutesById
 }
@@ -330,6 +367,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCalendarioRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/constancias': {
+      id: '/_authenticated/constancias'
+      path: '/constancias'
+      fullPath: '/constancias'
+      preLoaderRoute: typeof AuthenticatedConstanciasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -386,6 +430,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProyectosRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/respaldos': {
+      id: '/_authenticated/respaldos'
+      path: '/respaldos'
+      fullPath: '/respaldos'
+      preLoaderRoute: typeof AuthenticatedRespaldosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/riesgo': {
+      id: '/_authenticated/riesgo'
+      path: '/riesgo'
+      fullPath: '/riesgo'
+      preLoaderRoute: typeof AuthenticatedRiesgoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/sesiones': {
       id: '/_authenticated/sesiones'
       path: '/sesiones'
@@ -403,6 +461,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedBibliotecaRoute: typeof AuthenticatedBibliotecaRoute
   AuthenticatedBoletasRoute: typeof AuthenticatedBoletasRoute
   AuthenticatedCalendarioRoute: typeof AuthenticatedCalendarioRoute
+  AuthenticatedConstanciasRoute: typeof AuthenticatedConstanciasRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamenesRoute: typeof AuthenticatedExamenesRoute
   AuthenticatedExpedienteRoute: typeof AuthenticatedExpedienteRoute
@@ -411,6 +470,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedPlaneacionesRoute: typeof AuthenticatedPlaneacionesRoute
   AuthenticatedPortafolioRoute: typeof AuthenticatedPortafolioRoute
   AuthenticatedProyectosRoute: typeof AuthenticatedProyectosRoute
+  AuthenticatedRespaldosRoute: typeof AuthenticatedRespaldosRoute
+  AuthenticatedRiesgoRoute: typeof AuthenticatedRiesgoRoute
   AuthenticatedSesionesRoute: typeof AuthenticatedSesionesRoute
 }
 
@@ -421,6 +482,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBibliotecaRoute: AuthenticatedBibliotecaRoute,
   AuthenticatedBoletasRoute: AuthenticatedBoletasRoute,
   AuthenticatedCalendarioRoute: AuthenticatedCalendarioRoute,
+  AuthenticatedConstanciasRoute: AuthenticatedConstanciasRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamenesRoute: AuthenticatedExamenesRoute,
   AuthenticatedExpedienteRoute: AuthenticatedExpedienteRoute,
@@ -429,6 +491,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedPlaneacionesRoute: AuthenticatedPlaneacionesRoute,
   AuthenticatedPortafolioRoute: AuthenticatedPortafolioRoute,
   AuthenticatedProyectosRoute: AuthenticatedProyectosRoute,
+  AuthenticatedRespaldosRoute: AuthenticatedRespaldosRoute,
+  AuthenticatedRiesgoRoute: AuthenticatedRiesgoRoute,
   AuthenticatedSesionesRoute: AuthenticatedSesionesRoute,
 }
 
