@@ -28,6 +28,8 @@ import { Route as AuthenticatedObservadorRouteImport } from './routes/_authentic
 import { Route as AuthenticatedPlaneacionesRouteImport } from './routes/_authenticated/planeaciones'
 import { Route as AuthenticatedPortafolioRouteImport } from './routes/_authenticated/portafolio'
 import { Route as AuthenticatedProyectosRouteImport } from './routes/_authenticated/proyectos'
+import { Route as AuthenticatedRespaldosRouteImport } from './routes/_authenticated/respaldos'
+import { Route as AuthenticatedRiesgoRouteImport } from './routes/_authenticated/riesgo'
 import { Route as AuthenticatedSesionesRouteImport } from './routes/_authenticated/sesiones'
 
 const IndexRoute = IndexRouteImport.update({
@@ -126,6 +128,16 @@ const AuthenticatedProyectosRoute = AuthenticatedProyectosRouteImport.update({
   path: '/proyectos',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedRespaldosRoute = AuthenticatedRespaldosRouteImport.update({
+  id: '/respaldos',
+  path: '/respaldos',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedRiesgoRoute = AuthenticatedRiesgoRouteImport.update({
+  id: '/riesgo',
+  path: '/riesgo',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedSesionesRoute = AuthenticatedSesionesRouteImport.update({
   id: '/sesiones',
   path: '/sesiones',
@@ -151,6 +163,8 @@ export interface FileRoutesByFullPath {
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
+  '/respaldos': typeof AuthenticatedRespaldosRoute
+  '/riesgo': typeof AuthenticatedRiesgoRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRoutesByTo {
@@ -172,6 +186,8 @@ export interface FileRoutesByTo {
   '/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/portafolio': typeof AuthenticatedPortafolioRoute
   '/proyectos': typeof AuthenticatedProyectosRoute
+  '/respaldos': typeof AuthenticatedRespaldosRoute
+  '/riesgo': typeof AuthenticatedRiesgoRoute
   '/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRoutesById {
@@ -195,6 +211,8 @@ export interface FileRoutesById {
   '/_authenticated/planeaciones': typeof AuthenticatedPlaneacionesRoute
   '/_authenticated/portafolio': typeof AuthenticatedPortafolioRoute
   '/_authenticated/proyectos': typeof AuthenticatedProyectosRoute
+  '/_authenticated/respaldos': typeof AuthenticatedRespaldosRoute
+  '/_authenticated/riesgo': typeof AuthenticatedRiesgoRoute
   '/_authenticated/sesiones': typeof AuthenticatedSesionesRoute
 }
 export interface FileRouteTypes {
@@ -218,6 +236,8 @@ export interface FileRouteTypes {
     | '/planeaciones'
     | '/portafolio'
     | '/proyectos'
+    | '/respaldos'
+    | '/riesgo'
     | '/sesiones'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -239,6 +259,8 @@ export interface FileRouteTypes {
     | '/planeaciones'
     | '/portafolio'
     | '/proyectos'
+    | '/respaldos'
+    | '/riesgo'
     | '/sesiones'
   id:
     | '__root__'
@@ -261,6 +283,8 @@ export interface FileRouteTypes {
     | '/_authenticated/planeaciones'
     | '/_authenticated/portafolio'
     | '/_authenticated/proyectos'
+    | '/_authenticated/respaldos'
+    | '/_authenticated/riesgo'
     | '/_authenticated/sesiones'
   fileRoutesById: FileRoutesById
 }
@@ -406,6 +430,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProyectosRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/respaldos': {
+      id: '/_authenticated/respaldos'
+      path: '/respaldos'
+      fullPath: '/respaldos'
+      preLoaderRoute: typeof AuthenticatedRespaldosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/riesgo': {
+      id: '/_authenticated/riesgo'
+      path: '/riesgo'
+      fullPath: '/riesgo'
+      preLoaderRoute: typeof AuthenticatedRiesgoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/sesiones': {
       id: '/_authenticated/sesiones'
       path: '/sesiones'
@@ -432,6 +470,8 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedPlaneacionesRoute: typeof AuthenticatedPlaneacionesRoute
   AuthenticatedPortafolioRoute: typeof AuthenticatedPortafolioRoute
   AuthenticatedProyectosRoute: typeof AuthenticatedProyectosRoute
+  AuthenticatedRespaldosRoute: typeof AuthenticatedRespaldosRoute
+  AuthenticatedRiesgoRoute: typeof AuthenticatedRiesgoRoute
   AuthenticatedSesionesRoute: typeof AuthenticatedSesionesRoute
 }
 
@@ -451,6 +491,8 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedPlaneacionesRoute: AuthenticatedPlaneacionesRoute,
   AuthenticatedPortafolioRoute: AuthenticatedPortafolioRoute,
   AuthenticatedProyectosRoute: AuthenticatedProyectosRoute,
+  AuthenticatedRespaldosRoute: AuthenticatedRespaldosRoute,
+  AuthenticatedRiesgoRoute: AuthenticatedRiesgoRoute,
   AuthenticatedSesionesRoute: AuthenticatedSesionesRoute,
 }
 
