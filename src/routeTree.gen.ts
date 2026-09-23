@@ -19,6 +19,7 @@ import { Route as AuthenticatedAnaliticaRouteImport } from './routes/_authentica
 import { Route as AuthenticatedBibliotecaRouteImport } from './routes/_authenticated/biblioteca'
 import { Route as AuthenticatedBoletasRouteImport } from './routes/_authenticated/boletas'
 import { Route as AuthenticatedCalendarioRouteImport } from './routes/_authenticated/calendario'
+import { Route as AuthenticatedConstanciasRouteImport } from './routes/_authenticated/constancias'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedExamenesRouteImport } from './routes/_authenticated/examenes'
 import { Route as AuthenticatedExpedienteRouteImport } from './routes/_authenticated/expediente'
@@ -78,6 +79,12 @@ const AuthenticatedCalendarioRoute = AuthenticatedCalendarioRouteImport.update({
   path: '/calendario',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedConstanciasRoute =
+  AuthenticatedConstanciasRouteImport.update({
+    id: '/constancias',
+    path: '/constancias',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
+  '/constancias': typeof AuthenticatedConstanciasRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
   '/expediente': typeof AuthenticatedExpedienteRoute
@@ -155,6 +163,7 @@ export interface FileRoutesByTo {
   '/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/boletas': typeof AuthenticatedBoletasRoute
   '/calendario': typeof AuthenticatedCalendarioRoute
+  '/constancias': typeof AuthenticatedConstanciasRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/examenes': typeof AuthenticatedExamenesRoute
   '/expediente': typeof AuthenticatedExpedienteRoute
@@ -177,6 +186,7 @@ export interface FileRoutesById {
   '/_authenticated/biblioteca': typeof AuthenticatedBibliotecaRoute
   '/_authenticated/boletas': typeof AuthenticatedBoletasRoute
   '/_authenticated/calendario': typeof AuthenticatedCalendarioRoute
+  '/_authenticated/constancias': typeof AuthenticatedConstanciasRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/examenes': typeof AuthenticatedExamenesRoute
   '/_authenticated/expediente': typeof AuthenticatedExpedienteRoute
@@ -199,6 +209,7 @@ export interface FileRouteTypes {
     | '/biblioteca'
     | '/boletas'
     | '/calendario'
+    | '/constancias'
     | '/dashboard'
     | '/examenes'
     | '/expediente'
@@ -219,6 +230,7 @@ export interface FileRouteTypes {
     | '/biblioteca'
     | '/boletas'
     | '/calendario'
+    | '/constancias'
     | '/dashboard'
     | '/examenes'
     | '/expediente'
@@ -240,6 +252,7 @@ export interface FileRouteTypes {
     | '/_authenticated/biblioteca'
     | '/_authenticated/boletas'
     | '/_authenticated/calendario'
+    | '/_authenticated/constancias'
     | '/_authenticated/dashboard'
     | '/_authenticated/examenes'
     | '/_authenticated/expediente'
@@ -330,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCalendarioRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/constancias': {
+      id: '/_authenticated/constancias'
+      path: '/constancias'
+      fullPath: '/constancias'
+      preLoaderRoute: typeof AuthenticatedConstanciasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -403,6 +423,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedBibliotecaRoute: typeof AuthenticatedBibliotecaRoute
   AuthenticatedBoletasRoute: typeof AuthenticatedBoletasRoute
   AuthenticatedCalendarioRoute: typeof AuthenticatedCalendarioRoute
+  AuthenticatedConstanciasRoute: typeof AuthenticatedConstanciasRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedExamenesRoute: typeof AuthenticatedExamenesRoute
   AuthenticatedExpedienteRoute: typeof AuthenticatedExpedienteRoute
@@ -421,6 +442,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBibliotecaRoute: AuthenticatedBibliotecaRoute,
   AuthenticatedBoletasRoute: AuthenticatedBoletasRoute,
   AuthenticatedCalendarioRoute: AuthenticatedCalendarioRoute,
+  AuthenticatedConstanciasRoute: AuthenticatedConstanciasRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedExamenesRoute: AuthenticatedExamenesRoute,
   AuthenticatedExpedienteRoute: AuthenticatedExpedienteRoute,
