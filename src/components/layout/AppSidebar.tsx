@@ -1,6 +1,9 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
+  AlertTriangle,
   BarChart3,
+  DatabaseBackup,
+  FileSignature,
   BookOpen,
   CalendarDays,
   CalendarRange,
@@ -50,13 +53,16 @@ const seguimiento: Item[] = [
   { title: "Observador de Clase", url: "/observador", icon: Eye },
   { title: "Expediente del Alumno", url: "/expediente", icon: FolderOpen },
   { title: "Portafolio de Evidencias", url: "/portafolio", icon: Images },
+  { title: "IA Predictiva de Riesgo", url: "/riesgo", icon: AlertTriangle },
   { title: "Portal de Padres", url: "/padres", icon: Users },
 ];
 
 const organizacion: Item[] = [
   { title: "Agenda Docente", url: "/agenda", icon: CalendarDays },
-  { title: "Calendario Escolar", url: "/calendario", icon: CalendarRange },
+  { title: "Calendario Inteligente", url: "/calendario", icon: CalendarRange },
+  { title: "Constancias", url: "/constancias", icon: FileSignature },
   { title: "Biblioteca", url: "/biblioteca", icon: Library },
+  { title: "Respaldos", url: "/respaldos", icon: DatabaseBackup },
   { title: "Administración", url: "/admin", icon: Settings },
 ];
 

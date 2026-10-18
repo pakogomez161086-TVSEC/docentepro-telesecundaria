@@ -6,8 +6,8 @@
 - [x] 4. Observador de Clase (/observador)
 - [x] 5. Expediente del Alumno (/expediente)
 - [x] 6. Portafolio de Evidencias (/portafolio)
-- [ ] 7. Constancias y documentos oficiales
-- [ ] 8. Calendario inteligente
-- [ ] 9. IA predictiva de riesgo
-- [ ] 10. Respaldos y exportación masiva
+- [x] 7. Constancias y documentos oficiales
+- [x] 8. Calendario inteligente
+- [x] 9. IA predictiva de riesgo
+- [x] 10. Respaldos y exportación masiva
 - [ ] Logos oficiales (pendiente: el usuario debe subir ts_logo.png y logo DocentePRO)
